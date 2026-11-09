@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="性格・価値観と医院の運営方針から、クラウド型・オンプレミス型の電子カルテ選びの傾向を診断します。">
+<title>電子カルテ適性診断 | BETA</title>
+<style>
+:root{--ink:#20313d;--muted:#6c7b85;--line:#e3e9ed;--bg:#f4f7f8;--card:#fff;--green:#24866f;--green-soft:#eaf5f1;--blue:#426fa8;--blue-soft:#edf3fa;--shadow:0 18px 50px rgba(28,48,60,.09)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#f4f8f7 0%,#f5f7fa 55%,#eef3f7 100%);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.7}
+button{font:inherit}.wrap{max-width:760px;margin:0 auto;padding:34px 18px 56px}.brand{display:flex;align-items:center;gap:10px;color:#45605e;font-size:12px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}.brandmark{width:34px;height:34px;border-radius:11px;background:#e1f0eb;color:var(--green);display:grid;place-items:center;font-size:18px}.hero{padding:30px 4px 24px}.eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:.12em}.hero h1{font-size:clamp(27px,5vw,39px);line-height:1.25;letter-spacing:-.035em;margin:10px 0 12px}.hero p{margin:0;color:var(--muted);font-size:15px;max-width:610px}.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:19px}.pill{border:1px solid var(--line);background:#ffffffb8;color:#53636d;border-radius:99px;padding:5px 11px;font-size:12px;font-weight:650}.panel{background:var(--card);border:1px solid #e8edef;border-radius:24px;box-shadow:var(--shadow);padding:clamp(20px,4vw,34px)}.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;font-weight:750}.section{color:var(--green)}.count{color:var(--muted);font-variant-numeric:tabular-nums}.progress{height:6px;background:#edf1f2;border-radius:99px;overflow:hidden;margin:14px 0 27px}.bar{height:100%;width:10%;background:linear-gradient(90deg,#278c74,#70b49f);border-radius:99px;transition:width .25s}.tag{display:inline-block;background:#f0f4f4;color:#64747a;border-radius:7px;padding:4px 9px;font-size:11px;font-weight:750;letter-spacing:.04em}.question{font-size:clamp(21px,4vw,28px);line-height:1.45;letter-spacing:-.025em;margin:13px 0 8px}.hint{color:var(--muted);font-size:13px;margin:0 0 22px}.choices{display:grid;gap:12px}.choice{border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:17px 18px;text-align:left;cursor:pointer;display:flex;gap:14px;align-items:flex-start;transition:.18s;min-height:88px;color:var(--ink)}.choice:hover{border-color:#9bbfb3;transform:translateY(-1px);box-shadow:0 8px 20px #244e4010}.choice:focus-visible,.btn:focus-visible{outline:3px solid #a6c9be;outline-offset:3px}.letter{flex:0 0 30px;height:30px;border-radius:9px;background:var(--green-soft);color:var(--green);font-size:13px;font-weight:800;display:grid;place-items:center}.choice:nth-child(2) .letter{background:var(--blue-soft);color:var(--blue)}.choice-text{font-size:15px;font-weight:650;line-height:1.65}.nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px}.btn{border:0;border-radius:12px;padding:11px 17px;font-weight:750;cursor:pointer}.btn.secondary{background:#f1f4f5;color:#56666f}.btn.primary{background:var(--green);color:white}.btn:disabled{opacity:.35;cursor:not-allowed}.navnote{font-size:12px;color:var(--muted)}.hidden{display:none!important}.result-kicker{font-size:12px;color:var(--muted);font-weight:750;letter-spacing:.1em}.result-type{font-size:36px;line-height:1.2;margin:7px 0 5px;letter-spacing:-.04em}.result-type.cloud{color:var(--green)}.result-type.onprem{color:var(--blue)}.result-title{font-size:20px;line-height:1.45;margin:0 0 12px}.result-desc{color:#52636d;font-size:14px;margin:0}.result-hero{border-radius:18px;padding:22px;background:linear-gradient(135deg,#f0f7f4,#f5f8fa);margin:18px 0 22px}.result-hero.onprem{background:linear-gradient(135deg,#f0f4fa,#f7f8fa)}.scorebox{border-top:1px solid var(--line);padding-top:18px;margin-top:20px}.scoreline{display:flex;justify-content:space-between;font-size:13px;margin:12px 0 6px}.scoretrack{height:8px;background:#edf1f2;border-radius:99px;overflow:hidden}.scorefill{height:100%;border-radius:99px}.scorefill.cloud{background:#56a58e}.scorefill.onprem{background:#7394bf}.subhead{font-size:17px;margin:24px 0 10px}.reason-list,.point-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}.reason-list li{display:flex;gap:11px;align-items:flex-start;font-size:14px}.num{width:25px;height:25px;flex:0 0 25px;border-radius:8px;background:#eef2f3;color:#52636d;display:grid;place-items:center;font-size:12px;font-weight:800}.point-list li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;background:#fff}.advice{padding:17px;border-radius:15px;background:#f4f6f7;font-size:14px;color:#4e5e67}.disclaimer{font-size:11px;color:#7b888e;margin:18px 0 0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.actions .btn{flex:1}.footer{text-align:center;color:#8a969b;font-size:11px;margin-top:22px}.intro{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.intro div{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff}.intro b{display:block;font-size:13px;margin-bottom:3px}.intro span{font-size:12px;color:var(--muted)}@media(max-width:520px){.wrap{padding:20px 13px 40px}.hero{padding:25px 3px 19px}.panel{border-radius:19px;padding:20px 17px}.choice{padding:15px 13px;min-height:80px}.choice-text{font-size:14px}.intro{grid-template-columns:1fr 1fr}.result-type{font-size:32px}}
+@media print{body{background:white}.wrap{max-width:none;padding:0}.brand,.hero,.actions,.footer{display:none!important}.panel{box-shadow:none;border:0;padding:0}.result-hero{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand"><div class="brandmark">＋</div><span>EMR FIT CHECK / BETA 1.0</span></div>
+  <header class="hero">
+    <div class="eyebrow">ELECTRONIC MEDICAL RECORD DIAGNOSIS</div>
+    <h1>あなたに合う<br>電子カルテタイプ診断</h1>
+    <p>性格や価値観、医院の運営方針から、電子カルテ選びの傾向を診断します。正解・不正解はありません。普段の考えに近い方を直感でお選びください。</p>
+    <div class="meta"><span class="pill">全10問</span><span class="pill">約2分</span><span class="pill">クラウド型 / オンプレミス型</span></div>
+    <div class="intro">
+      <div><b>PART 1｜性格・価値観</b><span>普段の選び方や仕事のスタイル 5問</span></div>
+      <div><b>PART 2｜医院の運営方針</b><span>設備・費用・管理の考え方 5問</span></div>
+    </div>
+  </header>
+  <section class="panel" id="quiz" aria-live="polite">
+    <div class="topline"><span class="section" id="section">PART 1｜性格・価値観</span><span class="count" id="count">01 / 10</span></div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <span class="tag" id="tag">選択の基準</span>
+    <h2 class="question" id="question"></h2>
+    <p class="hint">あなたの考えに、より近い方を選んでください。</p>
+    <div class="choices">
+      <button class="choice" id="choiceA" type="button"><span class="letter">A</span><span class="choice-text" id="textA"></span></button>
+      <button class="choice" id="choiceB" type="button"><span class="letter">B</span><span class="choice-text" id="textB"></span></button>
+    </div>
+    <div class="nav"><button class="btn secondary" id="back" type="button" disabled>← 前の質問</button><span class="navnote" id="navnote">直感でお答えください</span></div>
+  </section>
+  <section class="panel hidden" id="result" aria-live="polite">
+    <div class="result-kicker">YOUR DIAGNOSIS RESULT</div>
+    <div class="result-hero" id="resultHero">
+      <div class="result-kicker">あなたにおすすめの電子カルテタイプ</div>
+      <h2 class="result-type" id="resultType"></h2>
+      <h3 class="result-title" id="resultTitle"></h3>
+      <p class="result-desc" id="resultDesc"></p>
+    </div>
+    <h3 class="subhead">このタイプと診断された理由</h3>
+    <p class="hint">あなたの回答から、診断結果に影響した主な傾向です。</p>
+    <ul class="reason-list" id="reasons"></ul>
+    <div class="scorebox">
+      <h3 class="subhead" style="margin-top:0">回答スコア</h3>
+      <div class="scoreline"><span>クラウド型寄り</span><b id="cloudScore">0 / 15</b></div>
+      <div class="scoretrack"><div class="scorefill cloud" id="cloudBar"></div></div>
+      <div class="scoreline"><span>オンプレミス型寄り</span><b id="onpremScore">0 / 15</b></div>
+      <div class="scoretrack"><div class="scorefill onprem" id="onpremBar"></div></div>
+    </div>
+    <h3 class="subhead">電子カルテ選びで確認したい TOP3</h3>
+    <ul class="point-list" id="points"></ul>
+    <h3 class="subhead">診断結果を踏まえたアドバイス</h3>
+    <div class="advice" id="advice"></div>
+    <p class="disclaimer">※本診断は価値観・運営方針に基づく簡易的な参考情報です。実際の適合性を保証するものではありません。導入判断では、必要機能・通信環境・機器連携・費用・障害時の運用などを個別に確認してください。</p>
+    <div class="actions"><button class="btn secondary" id="restart" type="button">もう一度診断する</button><button class="btn primary" id="print" type="button">結果を印刷 / PDF保存</button></div>
+  </section>
+  <div class="footer">EMR FIT CHECK · BETA 1.0</div>
+</main>
+<script>
+const questions = [
+{section:"PART 1｜性格・価値観",tag:"流行・実績",q:"新しいサービスや商品を選ぶとき、あなたに近いのは？",a:"話題になっているものや、周囲で導入が進んでいるものを選ぶ",b:"自分で調べて、機能や実績に納得できるものを選ぶ",map:["c","o"]},
+{section:"PART 1｜性格・価値観",tag:"お金の使い方",q:"買い物や投資をするとき、考え方が近いのは？",a:"最初の負担を抑えて、必要なものを段階的に取り入れたい",b:"必要なものには最初に投資して、長く使える環境を整えたい",map:["c","o"]},
+{section:"PART 1｜性格・価値観",tag:"働き方",q:"仕事をする環境として、理想に近いのは？",a:"場所にとらわれず、自宅や外出先でも仕事を進められる環境",b:"いつもの場所に必要なものが揃い、落ち着いて仕事に集中できる環境",map:["c","o"]},
+{section:"PART 1｜性格・価値観",tag:"変化への向き合い方",q:"新しいことに取り組むとき、あなたに近いのは？",a:"まず試してみて、使いながら自分に合う方法を見つける",b:"事前に情報を集め、進め方を決めてから取り組む",map:["c","o"]},
+{section:"PART 1｜性格・価値観",tag:"こだわり",q:"仕事で使う道具を選ぶなら、どちらに惹かれる？",a:"見た目や使い心地が洗練され、直感的に扱えるもの",b:"機能が豊富で、細部まで自分好みに調整できるもの",map:["c","o"]},
+{section:"PART 2｜医院の運営方針",tag:"往診・院外業務",q:"往診や外出先での業務について、重視するのは？",a:"院外からでも必要な情報にアクセスできること",b:"院内の設備や機器との連携が安定していること",map:["c","o"]},
+{section:"PART 2｜医院の運営方針",tag:"サービス構成",q:"予約・問診・会計などの周辺システムを選ぶなら？",a:"同じメーカーのサービスでまとめ、操作や連携を統一する",b:"各業務に合った製品を選び、医院独自の運用に合わせる",map:["c","o"]},
+{section:"PART 2｜医院の運営方針",tag:"データ管理",q:"大切な診療データの管理方法について、考え方が近いのは？",a:"専門事業者の管理基盤を利用し、保守や管理を任せる",b:"院内にデータを保有し、自院の管理下に置く",map:["c","o"]},
+{section:"PART 2｜医院の運営方針",tag:"機能・サポート",q:"電子カルテに求めるものとして、より優先したいのは？",a:"必要な機能が幅広く搭載され、導入業者の個別サポートも充実していること",b:"システムの基盤管理や更新を任せられ、日々の管理負担を抑えられること",map:["o","c"]},
+{section:"PART 2｜医院の運営方針",tag:"診療継続",q:"診療をできる限り止めないために、重視したいのは？",a:"院内設備を整え、障害時の復旧手順や対応体制を確保しておくこと",b:"サービス提供事業者の保守体制やサービス基盤を活用すること",map:["o","c"]}
+];
+const cloudText=[
+"周囲の評判や導入実績を参考にする傾向","初期負担を抑え、段階的に取り入れたい傾向","場所にとらわれない働き方を重視する傾向","まず試しながら方法を見つける傾向","直感的な使いやすさやデザインを重視する傾向","院外からの情報アクセスを重視する傾向","周辺サービスの統一感を重視する傾向","専門事業者によるデータ管理を選択肢とする傾向","システム管理の負担を抑えたい傾向","サービス提供事業者の保守体制を重視する傾向"
+];
+const onpremText=[
+"自分で調べ、機能や実績を確かめる傾向","初期投資によって環境を整えたい傾向","院内の設備や仕事環境を重視する傾向","計画を立ててから取り組む傾向","機能の豊富さや個別設定を重視する傾向","院内機器との安定した連携を重視する傾向","業務ごとの製品選定や独自運用を重視する傾向","自院でデータを保有・管理したい傾向","機能の充実や個別サポートを重視する傾向","院内設備と復旧体制を整えることを重視する傾向"
+];
+const points={
+c:["院外からの利用範囲と、往診時のアクセス方法","予約・問診・会計など周辺サービスとの連携範囲","月額費用だけでなく、長期利用時の総費用","通信障害時やサービス停止時の診療継続方法","データの保管場所・バックアップ・復旧体制"],
+o:["必要な診療機能とカスタマイズの対応範囲","検査機器・画像機器などとの接続実績","導入業者の訪問対応・サポート時間・保守範囲","初期費用と将来の機器更新費用","障害時の復旧時間・バックアップ体制"]
+};
+let index=0,answers=[];
+const $=id=>document.getElementById(id);
+function render(){
+ const q=questions[index];
+ $("section").textContent=q.section;$("count").textContent=String(index+1).padStart(2,"0")+" / 10";
+ $("bar").style.width=((index+1)*10)+"%";$("tag").textContent=q.tag;$("question").textContent=q.q;
+ $("textA").textContent=q.a;$("textB").textContent=q.b;
+ $("back").disabled=index===0;
+ $("navnote").textContent=index<5?"性格・価値観を診断中":"医院の運営方針を診断中";
+}
+function select(n){answers[index]=n;if(index===9){showResult();return;}index++;render();}
+$("choiceA").addEventListener("click",()=>select(0));$("choiceB").addEventListener("click",()=>select(1));
+$("back").addEventListener("click",()=>{if(index>0){index--;render();}});
+function showResult(){
+ const cloud=answers.reduce((sum,a,i)=>sum+(questions[i].map[a]==="c"?(i<5?1:2):0),0);
+ const onprem=15-cloud, type=cloud>=8?"c":"o";
+ $("quiz").classList.add("hidden");$("result").classList.remove("hidden");
+ const hero=$("resultHero");hero.className="result-hero"+(type==="o"?" onprem":"");
+ $("resultType").textContent=type==="c"?"クラウド型":"オンプレミス型";
+ $("resultType").className="result-type "+(type==="c"?"cloud":"onprem");
+ $("resultTitle").textContent=type==="c"?"柔軟性とサービスの一体感を重視するタイプ":"機能性と自院に合った環境を重視するタイプ";
+ $("resultDesc").textContent=type==="c"?"場所にとらわれない利用環境や、周辺サービスとの統一、専門事業者による基盤運用などに価値を感じる傾向があります。":"院内データの保有、機器連携、個別の運用設定、手厚いサポートなどに価値を感じる傾向があります。";
+ $("cloudScore").textContent=cloud+" / 15";$("onpremScore").textContent=onprem+" / 15";
+ $("cloudBar").style.width=(cloud/15*100)+"%";$("onpremBar").style.width=(onprem/15*100)+"%";
+ const selected=answers.map((a,i)=>({i,weight:i<5?1:2,type:questions[i].map[a],text:(questions[i].map[a]==="c"?cloudText:onpremText)[i]})).filter(x=>x.type===type).sort((a,b)=>b.weight-a.weight||a.i-b.i).slice(0,3);
+ $("reasons").innerHTML=selected.map((r,i)=>`<li><span class="num">${i+1}</span><span>${r.text}</span></li>`).join("");
+ $("points").innerHTML=points[type].slice(0,3).map((p,i)=>`<li><b>${i+1}.</b> ${p}</li>`).join("");
+ $("advice").textContent=type==="c"?"クラウド型を検討する際は、月額費用だけでなく、院外利用の範囲や周辺機器との連携、通信障害時の対応まで比較することが重要です。":"オンプレミス型を検討する際は、必要機能だけでなく、機器連携の実績、保守対応、将来の更新費用まで確認することが重要です。";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+$("restart").addEventListener("click",()=>{index=0;answers=[];$("result").classList.add("hidden");$("quiz").classList.remove("hidden");render();window.scrollTo({top:0,behavior:"smooth"});});
+$("print").addEventListener("click",()=>window.print());
+render();
+</script>
+</body>
+</html>
